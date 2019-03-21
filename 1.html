@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="form">
+        <span id="span"></span>
+        <input type="text" id ="in2" value="2">
+        <input type="text" id="in" value="3">
+        <input type="submit" id="in3">
+    </form>
+</body>
+<script type="text/javascript" src="jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#in3').click(function () {
+            var div1 = document.getElementById('in2').value;
+            alert(div1);
+            var i = $('[id="in2"]').val();
+            $.ajax({
+                url:'1.php',
+                method:"get",
+                data:"i="+i,
+                success:function (res) {
+                    var arr = document.getElementById('span');
+                    if (res==2) {
+
+                        arr.innerText ="成功";
+                    }else {
+                        arr.innerText ="失败";
+                    }
+                }
+            })
+        })
+    })
+</script>
+</html>
